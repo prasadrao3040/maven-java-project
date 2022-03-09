@@ -22,7 +22,7 @@ pipeline {
         
         stage('Notification') {
             steps {
-                slackSend channel: '#pipe-line-job-jenkins', color: 'yellow', message: 'This is pipe line job is successfully build', tokenCredentialId: 'slack'
+                slackSend channel: '#pipe-line-job-jenkins', color: 'yellow', message: 'This is pipe line job is successfully build and deployed', tokenCredentialId: 'slack'
             }
         }
     }
