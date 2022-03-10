@@ -21,7 +21,9 @@ pipeline {
         }
          stage('deploy') {
             steps {
-                sh 'mvn install tomcat9:deploy'
+                withCredentials([usernamePassword(credentialsId: 'Tomcat', passwordVariable: 'password', usernameVariable: 'Tomcat')]) {
+    // some block
+}
             }
         }
         stage('Notification') {
