@@ -19,6 +19,11 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+         stage('deploy') {
+            steps {
+                sh 'mvn install tomcat9:deploy'
+            }
+        }
         stage('Notification') {
             steps {
                 slackSend channel: '#pipe-line-job-jenkins', color: 'yellow', message: 'This is pipe line job is successfully build', tokenCredentialId: 'slack'
